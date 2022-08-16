@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "components" : ["components"],
+            "redux": ["redux"],
+            "services": ["services"],
+            "pages" : ["pages"],
+            "modules" : ["modules"],
+            "hooks": ["hooks"],
+            "core": ["core"]
+        }
+    }
+}
