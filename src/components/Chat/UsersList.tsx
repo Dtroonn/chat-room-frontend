@@ -8,12 +8,15 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import PerfectScrollbar from "react-perfect-scrollbar";
+import { useScrollbar } from "hooks/useScrollbar";
+import SimpleBar from "simplebar-react";
 
 export const UsersList: React.FC = () => {
+    // const wrapperRef = React.useRef<HTMLUListElement>(null);
+    // useScrollbar(wrapperRef);
     return (
-        <PerfectScrollbar
-            component="ul"
-            style={{ overflowY: "auto", height: "100%", padding: 0, margin: 0 }}>
+        <SimpleBar
+            style={{ height: "100%", padding: 0, margin: 0, overflow: "auto", width: "100%" }}>
             {Array(200)
                 .fill(0)
                 .map((i, index) => (
@@ -31,6 +34,6 @@ export const UsersList: React.FC = () => {
                         />
                     </ListItem>
                 ))}
-        </PerfectScrollbar>
+        </SimpleBar>
     );
 };

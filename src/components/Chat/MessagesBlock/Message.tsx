@@ -5,11 +5,15 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
+//@ts-ignore
+import styles from "./styles.module.css";
+
 interface IMessageProps {
-    fullName: string;
+    fullName?: string;
     text: string;
     avatarUrl?: string;
     showArrow?: boolean;
+    directionArrow?: "left" | "right";
 }
 
 export const Message: React.FC<IMessageProps> = React.memo(
@@ -18,6 +22,7 @@ export const Message: React.FC<IMessageProps> = React.memo(
         text,
         avatarUrl = "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
         showArrow,
+        directionArrow = "left",
     }) => {
         const mountRef = React.useRef(false);
         React.useEffect(() => {
@@ -45,13 +50,17 @@ export const Message: React.FC<IMessageProps> = React.memo(
                     elevation={3}
                     sx={{
                         padding: "8px 16px",
-                        borderBottomLeftRadius: showArrow ? 0 : "",
+                        borderBottomLeftRadius: showArrow && directionArrow === "left" ? 0 : "",
+                        borderBottomRightRadius: showArrow && directionArrow === "right" ? 0 : "",
                     }}>
                     <div style={{ marginRight: 45 }}>
-                        <Typography variant="subtitle2">{fullName}</Typography>
-                        <Typography sx={{ lineHeight: 1.4 }} component="p" variant="subtitle1">
-                            {text}
-                        </Typography>
+                        {fullName && <Typography variant="subtitle2">{fullName}</Typography>}
+                        <Typography
+                            className={styles.messageText}
+                            dangerouslySetInnerHTML={{ __html: text }}
+                            sx={{ lineHeight: 1.4, wordBreak: "break-word" }}
+                            component="p"
+                            variant="subtitle1"></Typography>
                     </div>
                     <Typography
                         color="gray"

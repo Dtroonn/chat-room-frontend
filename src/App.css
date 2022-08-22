@@ -21,3 +21,14 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+.simplebar-track {
+    cursor: default !important;
+    pointer-events: auto !important;
+}
+
+.simplebar-content {
+    display: flex;
+    flex-direction: column;
+}
+

@@ -23,14 +23,21 @@ export const Chat: React.FC = () => {
             elevation={8}
             sx={{
                 height: "calc(100vh - 124px)",
-                overflow: "hidden",
+                // overflow: "hidden",
             }}>
             <Grid container sx={{ height: "100%", flexWrap: "nowrap" }}>
                 <Grid item container sx={{ flex: "0 0 320px", height: "100%" }}>
                     <UsersList />
                 </Grid>
                 <Divider orientation="vertical" flexItem />
-                <Grid item sx={{ flexGrow: 1, height: "100%", flexDirection: "column" }} container>
+                <Grid
+                    item
+                    container
+                    sx={{
+                        flexGrow: 1,
+                        height: "100%",
+                        flexDirection: "column",
+                    }}>
                     <StyledChatHeader>
                         <Typography variant="subtitle2">Название комнаты</Typography>
                         <Typography color="gray" variant="body2">

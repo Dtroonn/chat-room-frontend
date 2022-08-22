@@ -14,6 +14,9 @@ import { Backdrop, CircularProgress } from "@mui/material";
 import { AuthRoute } from "components/AuthRoute";
 import { VerifyMailPage } from "pages/VerifyMailPage";
 import { NotificationsModule } from "modules/NotificationsModule";
+import "simplebar/dist/simplebar.min.css";
+
+import "overlayscrollbars/css/OverlayScrollbars.css";
 
 function App() {
     const isReady = useSelector(authSelectors.isReady);
